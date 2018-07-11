@@ -26,7 +26,7 @@ class Api::V1::AnimesController < ApplicationController
   end
 
   def create
-    # rest client .get(apiurl + anime_params[:name])
+    # RestClient.get(apiurl + anime_params[:name])
     @anime = Anime.new(anime_params)
   end
 
