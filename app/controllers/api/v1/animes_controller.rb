@@ -1,7 +1,7 @@
 class Api::V1::AnimesController < ApplicationController
-  before_action :set_anime, only: [:show, :index]
+  # before_action :set_anime, only: [:show, :index]
 
-  def self.fetch
+  def fetch
     # baseUrl = "https://api.jikan.moe/search"
     # type = type # anime, manga, person, character, season
     # query = query # q=Fate/Zero
@@ -43,9 +43,9 @@ class Api::V1::AnimesController < ApplicationController
 
   private
 
-  def set_anime
-    @anime = Api::V1::AnimesController.fetch
-  end
+  # def set_anime
+  #   @anime = Api::V1::AnimesController.fetch
+  # end
 
   def anime_params
     params.require(:anime)
