@@ -32,11 +32,12 @@ class Api::V1::AnimesController < ApplicationController
 
   def search
     # get the search param fron params `params[:term]`
-    result = JSON.parse(RestClient.get("https://api.jikan.moe/search/anime?q=#{params[:term]}&page=1"))
-
+    # result = JSON.parse(RestClient.get("https://api.jikan.moe/search/anime?q=#{params[:term]}&page=1"))
+    # dynamic_result = JSON.parse(RestClient.get("https://api.jikan.moe/search/anime?q=genre=#{passedInFromFrontEnd}"))
+    result = JSON.parse(RestClient.get("https://api.jikan.moe/search/anime?q=genre=#{params[:term]}"))
     # send that back to the front-end
     render json: {
-      my_results: result["result"][0],
+      my_results: result["result"].sample,
       my_message: 'hello'
     }
   end
