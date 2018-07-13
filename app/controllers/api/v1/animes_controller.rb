@@ -29,6 +29,7 @@ class Api::V1::AnimesController < ApplicationController
     # RestClient.get(apiurl + anime_params[:name])
     @anime = Anime.new(anime_params)
     @anime.save
+    render json: @anime
   end
 
   def search
