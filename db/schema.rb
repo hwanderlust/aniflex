@@ -18,7 +18,6 @@ ActiveRecord::Schema.define(version: 2018_07_09_222229) do
   create_table "animes", force: :cascade do |t|
     t.string "name"
     t.string "description"
-    t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
