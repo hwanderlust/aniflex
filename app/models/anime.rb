@@ -4,5 +4,5 @@ class Anime < ApplicationRecord
   ##title, description, type
   has_many :watch_lists
   has_many :users, through: :watch_lists
-
+  validates :name, uniqueness: true
 end

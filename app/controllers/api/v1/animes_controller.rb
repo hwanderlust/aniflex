@@ -39,7 +39,7 @@ class Api::V1::AnimesController < ApplicationController
     # send that back to the front-end
     render json: {
       my_results: result["result"].sample,
-      my_message: 'hello'
+      # my_message: 'hello'
     }
   end
 
