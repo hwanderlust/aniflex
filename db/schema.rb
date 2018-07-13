@@ -17,18 +17,19 @@ ActiveRecord::Schema.define(version: 2018_07_09_222229) do
 
   create_table "animes", force: :cascade do |t|
     t.string "name"
+    t.string "description"
+    t.string "link"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "email"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "watch_lists", force: :cascade do |t|
-    t.string "name"
     t.integer "user_id"
     t.integer "anime_id"
     t.datetime "created_at", null: false

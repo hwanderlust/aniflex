@@ -2,10 +2,11 @@ class Api::V1::WatchListsController < ApplicationController
 
   def index
     @watch_lists = Watchlist.all
+    render json: @watch_lists
   end
 
   def show
-    #code
+    render json: @watch_list
   end
 
   def create
@@ -14,6 +15,6 @@ class Api::V1::WatchListsController < ApplicationController
 
   private
   def watchlist_params
-    params.require(:watch_list).permit()
+    params.require(:watch_list).permit(:user_id, :anime_id)
   end
 end

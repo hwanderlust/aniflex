@@ -28,6 +28,7 @@ class Api::V1::AnimesController < ApplicationController
   def create
     # RestClient.get(apiurl + anime_params[:name])
     @anime = Anime.new(anime_params)
+    @anime.save
   end
 
   def search
@@ -49,6 +50,6 @@ class Api::V1::AnimesController < ApplicationController
   # end
 
   def anime_params
-    params.require(:anime)
+    params.require(:anime).permit(:name, :description)
   end
 end
