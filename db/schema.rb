@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 2018_07_09_222229) do
   end
 
   create_table "watch_lists", force: :cascade do |t|
+    t.string "name"
     t.integer "user_id"
     t.integer "anime_id"
     t.datetime "created_at", null: false
