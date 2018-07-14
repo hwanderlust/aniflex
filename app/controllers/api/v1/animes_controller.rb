@@ -1,5 +1,5 @@
 class Api::V1::AnimesController < ApplicationController
-  # before_action :set_anime, only: [:show, :index]
+  before_action :set_anime, only: [:show]
 
   def fetch
     # baseUrl = "https://api.jikan.moe/search"
@@ -22,7 +22,7 @@ class Api::V1::AnimesController < ApplicationController
     # make a request to the external API to get the dynamic data `their_data`
     # figure out the structure you want to send back to your front-end
     # render json of anime structure (our_data + their_data)
-
+    render json: @anime
   end
 
   def create
@@ -46,9 +46,9 @@ class Api::V1::AnimesController < ApplicationController
 
   private
 
-  # def set_anime
-  #   @anime = Api::V1::AnimesController.fetch
-  # end
+  def set_anime
+    @anime = Anime.find_by(id: params[:id])
+  end
 
   def anime_params
     params.require(:anime).permit(:name, :description)
