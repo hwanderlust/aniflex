@@ -1,5 +1,5 @@
 class Api::V1::UsersController < ApplicationController
-  before_action :set_user, only: [:show]
+  before_action :set_user, only: [:show, :animes]
 
   def create
     @user = User.find_or_create_by(name: user_params[:name])
@@ -8,6 +8,11 @@ class Api::V1::UsersController < ApplicationController
 
   def show
     render json: @user
+  end
+
+  def animes
+    @animes = @user.animes.map{|anime|anime.name}
+    render json: @animes
   end
 
   private
